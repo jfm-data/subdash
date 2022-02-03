@@ -196,7 +196,7 @@ row2_1, row2_2  = st.columns((5,1))
 
 fig_Units_team = px.area(data, x="Date", y="Price")
 #                           facet_row="Total", template='plotly_dark')
-st.plotly_chart(fig_Units_team, use_container_width=True)
+#st.plotly_chart(fig_Units_team, use_container_width=True)
 chart1 = data.loc[:,['Price', 'Date']].groupby('Date').sum().cumsum()
 
 with row2_1:
