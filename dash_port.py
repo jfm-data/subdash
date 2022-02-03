@@ -137,8 +137,7 @@ st.set_page_config(
 )
 
 
-st.sidebar.markdown("""<h2 style="text-align:center;color:white;font-weight:bolder;font-size:40px;background:
-                    transparent;-webkit-background-clip: text;-webkit-text-fill-color: black;">Select<br>Parameters</h1>""",unsafe_allow_html=True)
+st.sidebar.header('Select Parameters')
 
 st.sidebar.subheader('Select Location')
 S_Location = st.sidebar.selectbox('',['All']+list(pd.unique(data.Location)))
@@ -150,9 +149,7 @@ S_Service = st.sidebar.selectbox('',['All']+list(pd.unique(data.Service)))
 ## Streamlit Design // Main Page
 #####################
 
-st.markdown("""<h1 style="text-align:center;color:white;font-weight:bolder;font-size:80px;font-family:helvetica; background:
-            -webkit-linear-gradient(#a73305,#000000,#1B4D3E); -webkit-background-clip:
-            text;-webkit-text-fill-color: transparent;">Example<br>Dashboard</h1>""",unsafe_allow_html=True)
+st.title('Example Sub Dashboard')
 
 
 
@@ -213,13 +210,13 @@ with row2_2:
 st.text("Customer Visits By Week")   
 st.bar_chart(data=data.groupby(data.Date.dt.strftime('%W')).Customer.count())
 
-# chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
+chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
 
-# chart_data = pd.pivot_table(data, values='Price', index='Customer', aggfunc=np.sum)
-# chart_data = data.groupby([data.Date.dt.strftime('%W'), 'Customer']).Customer.count()
+chart_data = pd.pivot_table(data, values='Price', index='Customer', aggfunc=np.sum)
+chart_data = data.groupby([data.Date.dt.strftime('%W'), 'Customer']).Customer.count()
 
-# test1 = data.groupby([data.Date.dt.strftime('%W'), 'Customer']).Customer.count()
-# chart4 = test1.unstack(level=1)
+test1 = data.groupby([data.Date.dt.strftime('%W'), 'Customer']).Customer.count()
+chart4 = test1.unstack(level=1)
 
 import altair as alt
 st.text("Revenue by Customer Type")   
