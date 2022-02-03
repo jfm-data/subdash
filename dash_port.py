@@ -169,7 +169,7 @@ dict_loc = {"All" : [45.356, -75.6, 10.5],
 st.dataframe(data)
 
 
-row_1, row_2, row_3,  = st.beta_columns((1,1,1))
+row_1, row_2, row_3,  = st.columns((1,1,1))
 
 with row_1:
     st.write("**Ottawa South Location**")
@@ -191,7 +191,7 @@ with row_3:
  
 st.header('Trailing 3 Months Revenue')
 
-row2_1, row2_2  = st.beta_columns((5,1))
+row2_1, row2_2  = st.columns((5,1))
 
  
 
@@ -235,28 +235,28 @@ st.altair_chart(chart4, use_container_width=True)
 
 
 
-# data.groupby(df.Date.dt.strftime('%W')).Customer.count()
+data.groupby(df.Date.dt.strftime('%W')).Customer.count()
 
 
-# with row3_1:
-#     st.title("Yesterday")
-#     st.header("🚀 New: \t \t \t     **%i** " % (data.loc[:,['New', 'Date']].groupby('Date').sum()[-1:].sum()))
-#     st.header(":small_red_triangle_down:  Renewals:\t\t **%i** " % (data.loc[:,['Renewals', 'Date']].groupby('Date').sum()[-1:].sum()))
-#     st.header("🚀 Cancelled:\t\t **%i**" % (data.loc[:,['Cancelled', 'Date']].groupby('Date').sum()[-1:].sum()))
+with row3_1:
+     st.title("Yesterday")
+     st.header("🚀 New: \t \t \t     **%i** " % (data.loc[:,['New', 'Date']].groupby('Date').sum()[-1:].sum()))
+     st.header(":small_red_triangle_down:  Renewals:\t\t **%i** " % (data.loc[:,['Renewals', 'Date']].groupby('Date').sum()[-1:].sum()))
+     st.header("🚀 Cancelled:\t\t **%i**" % (data.loc[:,['Cancelled', 'Date']].groupby('Date').sum()[-1:].sum()))
     
-# with row3_2:
-#     st.title("Last 7 Days")
-#     st.header("🚀 New: \t \t \t     **%i** " % (data.loc[:,['New', 'Date']].groupby('Date').sum()[-7:].sum()))
-#     st.header("🚀 Renewals:\t\t **%i**" % (data.loc[:,['Renewals', 'Date']].groupby('Date').sum()[-7:].sum()))
-#     st.header("🔻 Cancelled:\t\t **%i** " % (data.loc[:,['Cancelled', 'Date']].groupby('Date').sum()[-7:].sum()))
+with row3_2:
+     st.title("Last 7 Days")
+     st.header("🚀 New: \t \t \t     **%i** " % (data.loc[:,['New', 'Date']].groupby('Date').sum()[-7:].sum()))
+     st.header("🚀 Renewals:\t\t **%i**" % (data.loc[:,['Renewals', 'Date']].groupby('Date').sum()[-7:].sum()))
+     st.header("🔻 Cancelled:\t\t **%i** " % (data.loc[:,['Cancelled', 'Date']].groupby('Date').sum()[-7:].sum()))
     
-# with row3_3:
-#     st.title("Last 30 Days")
-#     st.header(":small_red_triangle_down: New: \t \t \t     **%i** " % (data.loc[:,['New', 'Date']].groupby('Date').sum()[-30:].sum()))
-#     st.header("🚀 Renewals:\t\t **%i** " % (data.loc[:,['Renewals', 'Date']].groupby('Date').sum()[-30:].sum()))
-#     st.header("🚀 Cancelled:\t\t **%i**" % (data.loc[:,['Cancelled', 'Date']].groupby('Date').sum()[-30:].sum()))
+with row3_3:
+     st.title("Last 30 Days")
+     st.header(":small_red_triangle_down: New: \t \t \t     **%i** " % (data.loc[:,['New', 'Date']].groupby('Date').sum()[-30:].sum()))
+     st.header("🚀 Renewals:\t\t **%i** " % (data.loc[:,['Renewals', 'Date']].groupby('Date').sum()[-30:].sum()))
+     st.header("🚀 Cancelled:\t\t **%i**" % (data.loc[:,['Cancelled', 'Date']].groupby('Date').sum()[-30:].sum()))
 
-# map(data_map, 'Ottawa', 11)
+map(data_map, 'Ottawa', 11)
 import time
 
 
@@ -283,7 +283,3 @@ import time
 # status_text.text('Done!')
 # st.balloons()
 
-from bokeh.plotting import figure
-p = figure(plot_width=400, plot_height=400)
-p.varea([1, 2, 3, 4, 5], [6, 7, 2, 4, 5])
-st.bokeh_chart(p, use_container_width=True)
