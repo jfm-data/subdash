@@ -139,11 +139,11 @@ st.set_page_config(
 
 st.sidebar.header('Select Parameters')
 
-st.sidebar.subheader('Select Location')
-S_Location = st.sidebar.selectbox('',['All']+list(pd.unique(data.Location)))
 
-st.sidebar.subheader('Select Service')
-S_Service = st.sidebar.selectbox('',['All']+list(pd.unique(data.Service)))
+S_Location = st.sidebar.selectbox('Select Location',['All']+list(pd.unique(data.Location)))
+
+
+S_Service = st.sidebar.selectbox('Select Service',['All']+list(pd.unique(data.Service)))
 
 ######################
 ## Streamlit Design // Main Page
